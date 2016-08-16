@@ -1,5 +1,6 @@
 module RubyHamlJs
   module Version
-    VERSION = "0.0.5"
+    VERSION = "3.5.2" # Same version as sprockets
   end
 end
+
