@@ -11,7 +11,7 @@ module RubyHamlJs
     def initialize_engine
       require_template_library 'execjs'
     end
-    
+
     def prepare
     end
 
@@ -25,8 +25,6 @@ module RubyHamlJs
       compile_to_function
     end
 
-
-
     private
 
     def compile_to_function
@@ -34,7 +32,7 @@ module RubyHamlJs
         compile(self.class.haml_source).
         eval "Haml('#{js_string data}', {escapeHtmlByDefault: true, customEscape: #{js_custom_escape}}).toString()"
       # make sure function is annonymous
-      function.sub /function \w+/, "function "
+      function.sub(/function \w+/, 'function ')
     end
 
     def js_string str
@@ -57,9 +55,7 @@ module RubyHamlJs
         @haml_path = File.expand_path('../../../vendor/assets/javascripts/haml.js', __FILE__) if @haml_path.nil?
         @haml_source ||= IO.read @haml_path
       end
-
     end
-
   end
 end
 
